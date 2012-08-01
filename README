@@ -1,0 +1,22 @@
+		>> Twitter Sentiment Classifier <<
+
+A simple Maven project that builds a sentiment classifier that is used to predict tweet sentiments.
+
+Extracted features are stored in Redis using the jedis api and classification is done using Weka.
+
+Training done using twitter sentiment corpus available at http://twittersentiment.appspot.com
+
+Eclipse 'maven integration plugin' used for dependency management and 'checkstyle' for auto code formatting.
+
+JUnit tests to check if required resources are in place (Stanford Part-of-Speech tagger and Redis Connection).
+
+
+Build :
+Script in pom.xml to build jar-with-dependencies (automated in the case of build servers, e.g. Jenkins),
+else, if to be done manually, navigate to root of project and execute `mvn package`, the jar will appear
+in `target` directory, under root, on successful build.
+
+Note :
+if maven plugin for eclipse does not download a dependency automatically, manually install artifact by,
+e.g `mvn install:install-file -Dfile=commons-pool-1.6.jar -DgroupId=commons-pool -DartifactId=commons-pool
+     -Dversion=1.6 -Dpackaging=jar -DgeneratePom=true`
